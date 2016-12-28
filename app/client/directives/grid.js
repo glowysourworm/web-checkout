@@ -6,13 +6,30 @@ angular
 		link: function (scope, element, attrs) {
 
 			// This could be loaded via the REST service
-			scope.gridOptions = {};
+			scope.gridOptions = {
+				enableGridMenu: true,
+				enableColumnMenus: false,
+				enableColumnResizing: true
+			};
 
 			gridService
 				.get('')
 				.then(function (result){
 					scope.view = result.data;
-					scope.gridOptions.columnDefs = result.data.columns;
+					scope.gridOptions.columnDefs = 
+					_.orderBy(
+						_.map(
+							_.filter(result.data.columns, function (x) {
+								return x.position > 0;
+							}), function (column){
+
+								// add some defaults to the column definitions
+								return angular.extend(column, {
+									minWidth: 100
+							});
+						}), function (column){
+							return column.position;
+					});
 				});
 
 		},
