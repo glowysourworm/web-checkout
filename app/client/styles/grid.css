@@ -1,0 +1,10 @@
+.grid {
+	background-color:#F0F0F0;
+	border: 1px solid #BABABA;
+
+	padding:10px;
+}
+
+.grid h2 {
+	margin:0px;
+}

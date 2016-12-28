@@ -1,0 +1,20 @@
+{
+  "name": "web-checkout",
+  "version": "0.1.0",
+  "description": "Web Checkout NodeJS / Angular Application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"No Tests Specified\" && exit 0"
+  },
+  "keywords": [
+    "node.js",
+    "eclipse",
+    "nodeclipse"
+  ],
+  "author": "Ryan Dolan",
+  "license": "MIT",
+  "dependencies": {
+    "http": "*",
+    "serve-static": "~1.7.0"
+  }
+}

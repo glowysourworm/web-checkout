@@ -1,0 +1,25 @@
+<html>
+	<head>
+
+		<link rel="stylesheet" href="/client/styles/main.css" />
+		<link rel="stylesheet" href="/client/styles/home.css" />
+		<link rel="stylesheet" href="/client/styles/grid.css" />
+		<link rel="stylesheet" href="/client/styles/toolbar.css" />
+
+	</head>
+	<body ng-app="web-checkout">
+
+		<div ng-include="'/client/views/toolbar.html'"></div>
+
+		<ui-view></ui-view>
+
+		<script type="text/javascript" src="/lib/angular/angular.js"></script>
+		<script type="text/javascript" src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+		<script type="text/javascript" src="/client/services/dataService.js"></script>
+		<script type="text/javascript" src="/client/services/gridService.js"></script>
+		<script type="text/javascript" src="/client/directives/grid.js"></script>
+
+		<script type="text/javascript" src="/client/app.js"></script>
+	</body>
+</html>

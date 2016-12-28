@@ -1,0 +1,12 @@
+.toolbar {
+	width:100%;
+	margin-top:30px;
+
+	background: #EFEFEF;
+	border: 1px solid #BABABA;
+}
+.toolbar h2 {
+	font-style: italic;	
+	margin:15px;
+	margin-right:10px;
+}
