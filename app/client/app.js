@@ -1,5 +1,6 @@
 var app = angular.module('web-checkout',[
 	'ui.router',
+	'ui.grid',
 	'services',
 	'directives'
 	]);

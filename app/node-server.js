@@ -1,14 +1,19 @@
-var finalhandler = require('finalhandler');
-var http = require('http');
-var serveStatic = require('serve-static');
+var express = require('express');
+var fs = require('fs');
+var app = express();
 
-// Serve up public/ftp folder
-var serve = serveStatic('.', {'index': ['client/index.html']});
+// Read in JSON on startup
+var model = JSON.parse(fs.readFileSync('model/relocated.json', 'utf8'));
 
-// Create server
-var server = http.createServer(function onRequest (req, res) {
-  serve(req, res, finalhandler(req, res));
-});
+// Static files
+app.use(express.static(__dirname, {'index': ['client/index.html']}));
 
-// Listen
-server.listen(3000);
+// REST API
+app.get('/grid', function (req, res) {
+    res.json(model.meta.view);
+})
+
+// Start the server
+app.listen(3000, function () {
+  console.log('Web Checkout App listening on port 3000!')
+})

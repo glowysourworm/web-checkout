@@ -3,10 +3,8 @@ angular
 	.module('services')
 	.factory('gridService', ['$http', function ($http){
 	return {
-		get: function () {
-			return {
-
-			};
+		get: function (gridId) {
+			return $http.get('/grid');
 		}
 	};
 }]);
