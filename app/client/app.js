@@ -2,6 +2,7 @@ var app = angular.module('web-checkout',[
 	'ui.router',
 	'ui.grid',
 	'ui.grid.resizeColumns',
+	'ui.grid.autoResize',
 	'services',
 	'directives'
 	]);

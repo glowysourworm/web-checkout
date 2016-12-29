@@ -4,8 +4,7 @@ angular
 	.factory('dataService', ['$http', function ($http){
 	return {
 		get: function () {
-			return [				
-			];
+			return $http.get('/data');
 		}
 	}
 }]);

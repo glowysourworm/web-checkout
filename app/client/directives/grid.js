@@ -5,32 +5,58 @@ angular
 	return {
 		link: function (scope, element, attrs) {
 
+			_fieldNames = {};
+
 			// This could be loaded via the REST service
 			scope.gridOptions = {
+				enableFiltering: true,
 				enableGridMenu: true,
 				enableColumnMenus: false,
-				enableColumnResizing: true
+				enableColumnResizing: true,
+				data: []
 			};
 
-			gridService
-				.get('')
-				.then(function (result){
-					scope.view = result.data;
-					scope.gridOptions.columnDefs = 
-					_.orderBy(
-						_.map(
-							_.filter(result.data.columns, function (x) {
-								return x.position > 0;
-							}), function (column){
+			function loadGrid() {
+				gridService
+					.get('')
+					.then(function (result){
 
-								// add some defaults to the column definitions
-								return angular.extend(column, {
-									minWidth: 100
-							});
-						}), function (column){
-							return column.position;
+						// Entire view object
+						scope.view = result.data;
+
+						// field names for sorting incoming data
+						_fieldNames = _.map(result.data.columns, function (def) { return def.fieldName; });
+
+						// column defs
+						scope.gridOptions.columnDefs = result.data.columns;
+
+						loadData();
 					});
-				});
+			}
+
+			function loadData() {
+
+				dataService
+					.get('')
+					.then(function (result) {
+
+						scope.gridOptions.data = _.map(result.data, function (data) {
+							var dictionary = {};
+							var idx = 0;
+							for (dataIdx in data)
+								dictionary[_fieldNames[idx++]] = data[dataIdx];
+
+							return dictionary;
+						});
+					});
+			}
+
+			// -> loadGrid -> loadData
+			function load() {
+				loadGrid();
+			}
+
+			load();
 
 		},
 		templateUrl: '/client/views/grid.html',
