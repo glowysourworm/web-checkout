@@ -44,7 +44,13 @@ angular
 							var dictionary = {};
 							var idx = 0;
 							for (dataIdx in data)
-								dictionary[_fieldNames[idx++]] = data[dataIdx];
+							{
+								if (scope.gridOptions.columnDefs[idx].type == 'date')
+									dictionary[_fieldNames[idx++]] = new Date(data[dataIdx]);
+
+								else
+									dictionary[_fieldNames[idx++]] = data[dataIdx];									
+							}
 
 							return dictionary;
 						});

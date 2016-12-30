@@ -3,6 +3,7 @@ var app = angular.module('web-checkout',[
 	'ui.grid',
 	'ui.grid.resizeColumns',
 	'ui.grid.autoResize',
+	'ui.date',
 	'services',
 	'directives'
 	]);

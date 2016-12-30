@@ -1,7 +1,3 @@
-.grid [ui-grid] {
-	height:500px;
-}
-
 /* ui-grid override */
 .ui-grid-header-cell-wrapper {
 	height:initial !important;
@@ -10,6 +6,10 @@
 .grid [ui-grid] .ui-grid-filter-container,
 .grid [ui-grid] .ui-grid-filter-container input[type=text] {
 	padding: 4px !important;
+}
+
+.grid [ui-grid] .ui-grid-filter-container [ui-date] {
+	width:80% !important;
 }
 
 .grid [ui-grid] .ui-grid-filter-container .ui-grid-filter-button [class^="ui-grid-icon"] {
