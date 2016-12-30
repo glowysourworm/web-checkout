@@ -1,9 +1,11 @@
 var app = angular.module('web-checkout',[
+	'ngSanitize',
 	'ui.router',
 	'ui.grid',
 	'ui.grid.resizeColumns',
 	'ui.grid.autoResize',
 	'ui.date',
+	'ui.select',
 	'services',
 	'directives'
 	]);
