@@ -13,7 +13,8 @@
 <ul>
 	<li>git clone https://github.com/glowysourworm/web-checkout.git .</li>
 	<li>cd angular1</li>
-	<li>npm start node-server.js</li>
+	<li>npm install nodemon</li>
+	<li>nodemon start node-start.js</li>
 	<li>navigate browser to localhost:3000</li>
 	<li><hr /></li>
 	<li>cd angular2</li>
