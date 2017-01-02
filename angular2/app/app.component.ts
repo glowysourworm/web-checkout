@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from "@angular/core";
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+    selector: 'my-app',
+    templateUrl: 'app.component.html'
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent {
+    constructor(public router: Router,
+                private route: ActivatedRoute) {
+    }
+}

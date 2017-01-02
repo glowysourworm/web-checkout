@@ -1,0 +1,40 @@
+<div>
+    <h2>Relocated Vehicles - Angular 2.x ({{rowCount}} rows)</h2>
+
+    <div>
+        <ag-grid-ng2 #agGrid style="width: 100%; height: 450px;" class="ag-fresh"
+                     [gridOptions]="gridOptions"
+                     [showToolPanel]="showToolPanel"
+                     [rowData]="rowData"
+
+                     enableColResize
+                     enableSorting
+                     enableFilter
+                     groupHeaders
+                     suppressRowClickSelection
+                     toolPanelSuppressGroups
+                     toolPanelSuppressValues
+                     rowHeight="22"
+                     rowSelection="multiple">
+            <ag-grid-column headerName="Car Information">
+                <ag-grid-column headerName="Plate" field="plate" [width]="100" [pinned]="true"></ag-grid-column>            
+                <ag-grid-column headerName="Make" field="make" [width]="100" [pinned]="true"></ag-grid-column>
+                <ag-grid-column headerName="Color" field="color" [width]="100" [pinned]="true"></ag-grid-column>
+                <ag-grid-column headerName="State" field="state" [width]="100" [pinned]="true"></ag-grid-column>
+            </ag-grid-column>
+            <ag-grid-column headerName="Relocation From Information">
+                <ag-grid-column headerName="Date" field="relocated_date" [width]="100"></ag-grid-column>
+                <ag-grid-column headerName="#" field="relocated_from_address_number" [width]="100"></ag-grid-column>
+                <ag-grid-column headerName="Dir" field="relocated_from_street_direction" [width]="100"></ag-grid-column>
+                <ag-grid-column headerName="Street Name" field="relocated_from_street_name" [width]="150"></ag-grid-column>
+                <ag-grid-column headerName="Suffix" field="relocated_from_suffix" [width]="100"></ag-grid-column>
+            </ag-grid-column>
+            <ag-grid-column headerName="Relocation To Information">
+                <ag-grid-column headerName="#" field="relocated_to_address_number" [width]="100"></ag-grid-column>
+                <ag-grid-column headerName="Dir" field="relocated_to_direction" [width]="100"></ag-grid-column>
+                <ag-grid-column headerName="Street Name" field="relocated_to_street_name" [width]="150"></ag-grid-column>
+                <ag-grid-column headerName="Suffix" field="relocated_to_suffix" [width]="100"></ag-grid-column>
+            </ag-grid-column>            
+        </ag-grid-ng2>
+    </div>
+</div>

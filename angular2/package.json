@@ -1,50 +1,77 @@
 {
-  "name": "angular-quickstart",
-  "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "name": "ag-grid-ng2-example",
+  "version": "7.1.0",
+  "description": "ag-Grid Angular 2 Example Using Webpack",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "lint": "tslint ./app/**/*.ts -t verbose",
-    "lite": "lite-server",
-    "pree2e": "webdriver-manager update",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "@angular/common": "~2.4.0",
-    "@angular/compiler": "~2.4.0",
-    "@angular/core": "~2.4.0",
-    "@angular/forms": "~2.4.0",
-    "@angular/http": "~2.4.0",
-    "@angular/platform-browser": "~2.4.0",
-    "@angular/platform-browser-dynamic": "~2.4.0",
-    "@angular/router": "~3.4.0",
+    "postinstall": "./node_modules/protractor/bin/webdriver-manager update",
 
-    "angular-in-memory-web-api": "~0.2.2",
-    "systemjs": "0.19.40",
-    "core-js": "^2.4.1",
-    "reflect-metadata": "^0.1.8",
-    "rxjs": "5.0.1",
-    "zone.js": "^0.7.4"
+    "clean": "rimraf dist && rimraf app/*.js* && rimraf app/*.map",
+    "start": "webpack-dev-server --inline --progress --port 8080",
+    "build": "npm run clean && webpack --config config/webpack.prod.js --progress --profile --bail",
+
+    "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
+    "e2e": "protractor protractor.config.js --kill-others --success first",
+    "server": "http-server -s dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ceolter/ag-grid-ng2-example.git"
+  },
+  "author": "Niall Crosby <niall.crosby@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ceolter/ag-grid-ng2-example/issues"
+  },
+  "homepage": "http://www.ag-grid.com/",
+  "dependencies": {
+    "ag-grid": "7.1.x",
+    "ag-grid-enterprise": "7.1.x",
+    "ag-grid-ng2": "7.1.x",
+
+    "@angular/common": "2.3.x",
+    "@angular/compiler": "2.3.x",
+    "@angular/compiler-cli": "2.3.x",
+    "@angular/core": "2.3.x",
+    "@angular/http": "2.3.x",
+    "@angular/forms": "2.3.x",
+    "@angular/platform-browser": "2.3.x",
+    "@angular/platform-browser-dynamic": "2.3.x",
+    "@angular/platform-server": "2.3.x",
+    "@angular/router": "3.3.x",
+    "rxjs": "5.0.0-rc.4",
+    "zone.js": "0.7.x",
+    "core-js": "2.4.x",
+    "bootstrap": "3.3.6",
+    "jquery": "3.1.1"
   },
   "devDependencies": {
-    "concurrently": "^3.1.0",
-    "lite-server": "^2.2.2",
-    "typescript": "~2.0.10",
-
-    "canonical-path": "0.0.2",
+    "@types/node": "6.0.45",
+    "concurrently": "2.2.0",
+    "typescript": "2.0.3",
+    "rimraf": "2.5.x",
+    "@types/selenium-webdriver": "2.53.33",
     "http-server": "^0.9.0",
-    "tslint": "^3.15.1",
-    "lodash": "^4.16.4",
-    "jasmine-core": "~2.4.1",
-    "protractor": "~4.0.14",
-    "rimraf": "^2.5.4",
+    "canonical-path": "0.0.2",
+    "jasmine-core": "2.4.1",
+    "karma": "1.3.0",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-cli": "1.0.1",
+    "karma-jasmine": "1.0.2",
+    "karma-jasmine-html-reporter": "0.2.2",
+    "protractor": "4.0.13",
+    "webdriver-manager": "10.2.5",
 
-    "@types/node": "^6.0.46",
-    "@types/jasmine": "^2.5.36"
-  },
-  "repository": {}
+    "angular2-template-loader": "^0.4.0",
+    "awesome-typescript-loader": "^2.2.4",
+    "url-loader": "0.5.7",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "style-loader": "^0.13.1",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.15.0",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0"
+  }
 }
