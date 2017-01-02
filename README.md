@@ -16,7 +16,7 @@
 	<li>npm install nodemon</li>
 	<li>nodemon start node-start.js</li>
 	<li>navigate browser to localhost:3000</li>
-	<li><hr /></li>
+	<hr />
 	<li>cd angular2</li>
 	<li>npm start</li>
 	<li>navigate browser to localhost:8080</li>
